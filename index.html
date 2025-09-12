@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="nl">
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZNRRTMTTY"></script>
@@ -10,83 +10,119 @@
 
   gtag('config', 'G-5ZNRRTMTTY');
 </script>
-  <title>Snack Kiezer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snackkiezer 🍟</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #fff8dc;
+      background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
       text-align: center;
-      font-family: Arial, sans-serif;
+      color: #333;
     }
 
-    h1 {
-      color: brown;
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 2rem;
     }
 
     button {
-      font-size: 20px;
-      padding: 10px;
-      margin-top: 20px;
-      background-color: orange;
+      font-size: 1.2rem;
+      padding: 15px 30px;
+      background: #ff6b35;
+      color: white;
       border: none;
-      border-radius: 10px;
+      border-radius: 50px;
       cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     button:hover {
-      background-color: darkorange;
+      background: #ff3b1f;
+      transform: scale(1.05);
     }
 
     #resultaat {
-      margin-top: 20px;
-      font-size: 24px;
+      margin-top: 30px;
+      font-size: 2rem;
       font-weight: bold;
+      color: #111;
     }
 
     #weetje {
-      margin-top: 10px;
-      font-size: 18px;
-      color: #333;
+      margin-top: 15px;
+      font-size: 1rem;
+      color: #444;
       font-style: italic;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <h1>Eet je friet en heb je lekkere trek?</h1>
-  <button onclick="kiesSnack()">Klik hier voor je favoriete snack!</button>
+  <header>
+    <img src="logo.png" alt="Snackkiezer logo" style="height:80px; margin-bottom:20px;">
+    <h1>Geen idee welke snack? 🤔</h1>
+    <p>Laat Snackkiezer jouw perfecte snack uitzoeken!</p>
+  </header>
+
+  <button onclick="kiesSnack()">Kies mijn snack 🎉</button>
+
   <p id="resultaat"></p>
   <p id="weetje"></p>
 
   <script>
    function kiesSnack() {
-  let snacks = [
-    { naam: "Frikandel", weetje: "De frikandel is de populairste snack van Nederland." },
-    { naam: "Kroket", weetje: "In Nederland worden elk jaar meer dan 300 miljoen kroketten gegeten." },
-    { naam: "Kaassoufflé", weetje: "De kaassoufflé werd in de jaren ’60 bedacht als vegetarisch alternatief." },
-    { naam: "Bamischijf", weetje: "De bamischijf komt voort uit de Indonesische keuken." },
-    { naam: "Loempia", weetje: "Loempia’s zijn van oorsprong Chinees en werden traditioneel gegeten om de lente te vieren, vandaar de naam 'spring rolls'." },
-    { naam: "Mexicano", weetje: "De Mexicano werd in 1984 in België bedacht, maar heeft niks met Mexico te maken." },
-    { naam: "Berenhap", weetje: "Een berenhap is een gehaktbal in schijven met ui ertussen, aan een stokje." },
-    { naam: "Sitostick", weetje: "De sitostick bestaat uit stukjes kip of kalkoen aan een stokje." },
-    { naam: "Shoarmarol", weetje: "Een shoarmarol is een hartige snack van bladerdeeg gevuld met gekruid vlees en groenten." },
-    { naam: "Nasischijf", weetje: "De nasischijf is een snack gevuld met gekruide nasi, populair in snackbars." },
-    { naam: "Kaassoufflé met kruiden", weetje: "Een variant van de kaassoufflé met extra kruiden voor een pittige smaak." },
-    { naam: "Kipcorn", weetje: "De kipcorn is een lange gefrituurde kippenvleessnack met krokant laagje." },
-    { naam: "Vlammetje", weetje: "Het vlammetje is een pittige snack gevuld met gehakt en kruiden." },
-    { naam: "Kalfskroket", weetje: "Een kroket gemaakt van mals kalfsvlees, vaak iets exclusiever dan gewone kroketten." },
-    { naam: "Vegetarische loempia", weetje: "Een loempia zonder vlees, gevuld met groenten en kruiden." }
-  ];
+    let snacks = [
+      { naam: "Frikandel", weetje: "De frikandel is de populairste snack van Nederland." },
+      { naam: "Kroket", weetje: "In Nederland worden elk jaar meer dan 300 miljoen kroketten gegeten." },
+      { naam: "Kaassoufflé", weetje: "De kaassoufflé werd in de jaren ’60 bedacht als vegetarisch alternatief." },
+      { naam: "Bamischijf", weetje: "De bamischijf komt voort uit de Indonesische keuken." },
+      { naam: "Loempia", weetje: "Loempia’s zijn van oorsprong Chinees en werden traditioneel gegeten om de lente te vieren, vandaar de naam 'spring rolls'." },
+      { naam: "Mexicano", weetje: "De Mexicano werd in 1984 in België bedacht, maar heeft niks met Mexico te maken." },
+      { naam: "Berenhap", weetje: "Een berenhap is een gehaktbal in schijven met ui ertussen, aan een stokje." },
+      { naam: "Frikandel Speciaal", weetje: "Je mag Frikandel ook als Frikadel schrijven, Speciaal is met mayo, curry en uitjes." },
+      { naam: "Sitostick", weetje: "De sitostick bestaat uit stukjes kip of kalkoen aan een stokje." },
+      { naam: "Shoarmarol", weetje: "Een shoarmarol is een hartige snack van bladerdeeg gevuld met gekruid vlees en groenten." },
+      { naam: "Nasischijf", weetje: "De nasischijf is een snack gevuld met gekruide nasi, populair in snackbars." },
+      { naam: "Kaassoufflé met kruiden", weetje: "Een variant van de kaassoufflé met extra kruiden voor een pittige smaak." },
+      { naam: "Kipcorn", weetje: "De kipcorn is een lange gefrituurde kippenvleessnack met krokant laagje." },
+      { naam: "Vlammetje", weetje: "Het vlammetje is een pittige snack gevuld met gehakt en kruiden." },
+      { naam: "Kalfskroket", weetje: "Een kroket gemaakt van mals kalfsvlees, vaak iets exclusiever dan gewone kroketten." },
+      { naam: "Vegetarische loempia", weetje: "Een loempia zonder vlees, gevuld met groenten en kruiden." }
+    ];
 
-  let randomIndex = Math.floor(Math.random() * snacks.length);
-  let gekozenSnack = snacks[randomIndex];
+    let randomIndex = Math.floor(Math.random() * snacks.length);
+    let gekozenSnack = snacks[randomIndex];
 
-  document.getElementById("resultaat").innerText = gekozenSnack.naam + " 🍟";
-  document.getElementById("weetje").innerText = "Weetje: " + gekozenSnack.weetje;
-}
+    document.getElementById("resultaat").innerText = gekozenSnack.naam + " 🍟";
+    document.getElementById("weetje").innerText = "Weetje: " + gekozenSnack.weetje;
+  }
   </script>
 
-<footer style="margin-top: 40px; font-size: 14px; color: #555;">
-  &copy; NS 2025
-</footer>
-
+  <footer>
+    &copy; Snackkiezer by Niki 2025
+  </footer>
 </body>
 </html>
