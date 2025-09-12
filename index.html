@@ -95,22 +95,23 @@
   <script>
    function kiesSnack() {
     let snacks = [
-      { naam: "Frikandel", weetje: "De frikandel is de populairste snack van Nederland." },
-      { naam: "Kroket", weetje: "In Nederland worden elk jaar meer dan 300 miljoen kroketten gegeten." },
-      { naam: "Kaassoufflé", weetje: "De kaassoufflé werd in de jaren ’60 bedacht als vegetarisch alternatief." },
+      { naam: "Frikandel", weetje: "De frikandel bestaat al sinds de jaren 50, altijd al de nummer 1 en een echte klassieker!" },
+      { naam: "Kroket", weetje: "Het origineel was Frans, de 'croquette'. In Nederland worden elk jaar meer dan 300 miljoen kroketten gegeten." },
+      { naam: "Kaassoufflé", weetje: "De kaassoufflé werd in de jaren 60 bedacht als vegetarisch alternatief." },
       { naam: "Bamischijf", weetje: "De bamischijf komt voort uit de Indonesische keuken." },
       { naam: "Loempia", weetje: "Loempia’s zijn van oorsprong Chinees en werden traditioneel gegeten om de lente te vieren, vandaar de naam 'spring rolls'." },
-      { naam: "Mexicano", weetje: "De Mexicano werd in 1984 in België bedacht, maar heeft niks met Mexico te maken." },
+      { naam: "Mexicano", weetje: "De Mexicano werd in 1984 in België bedacht, maar heeft niks met Mexico te maken. Een beetje pittig ;-)" },
       { naam: "Berenhap", weetje: "Een berenhap is een gehaktbal in schijven met ui ertussen, aan een stokje." },
-      { naam: "Frikandel Speciaal", weetje: "Je mag Frikandel ook als Frikadel schrijven, Speciaal is met mayo, curry en uitjes." },
+      { naam: "Frikandel Speciaal", weetje: "Je mag Frikandel ook als Frikadel schrijven, Speciaal is met mayo, curry en uitjes. De klassieker met een twist!" },
       { naam: "Sitostick", weetje: "De sitostick bestaat uit stukjes kip of kalkoen aan een stokje." },
       { naam: "Shoarmarol", weetje: "Een shoarmarol is een hartige snack van bladerdeeg gevuld met gekruid vlees en groenten." },
-      { naam: "Nasischijf", weetje: "De nasischijf is een snack gevuld met gekruide nasi, populair in snackbars." },
-      { naam: "Kaassoufflé met kruiden", weetje: "Een variant van de kaassoufflé met extra kruiden voor een pittige smaak." },
+      { naam: "Nasischijf", weetje: "De nasischijf is een snack gevuld met gekruide nasi, met een vleugje Oosterse smaak." },
       { naam: "Kipcorn", weetje: "De kipcorn is een lange gefrituurde kippenvleessnack met krokant laagje." },
       { naam: "Vlammetje", weetje: "Het vlammetje is een pittige snack gevuld met gehakt en kruiden." },
       { naam: "Kalfskroket", weetje: "Een kroket gemaakt van mals kalfsvlees, vaak iets exclusiever dan gewone kroketten." },
-      { naam: "Vegetarische loempia", weetje: "Een loempia zonder vlees, gevuld met groenten en kruiden." }
+      { naam: "Vegetarische loempia", weetje: "Een loempia zonder vlees, gevuld met groenten en kruiden." },
+      { naam: "Bitterballen", weetje: "Kleine kroketten, als borrelhap of bij de friet. Soms als typisch Nederlands beschreven." },
+      { naam: "Viandel", weetje: "Een frikadel maar dan net iets anders. Kruidig, krokant en een populaire favoriet!" },
     ];
 
     let randomIndex = Math.floor(Math.random() * snacks.length);
@@ -120,6 +121,77 @@
     document.getElementById("weetje").innerText = "Weetje: " + gekozenSnack.weetje;
   }
   </script>
+
+<div class="compact-share">
+<button class="x" onclick="deel('x')" title="Deel op X">
+<!-- SVG X-logo -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="white">
+<path d="M23.954 4.569c-.885.392-1.83.656-2.825.775 1.014-.608 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.897-.957-2.178-1.555-3.594-1.555-2.723 0-4.932 2.208-4.932 4.932 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.733-.666 1.58-.666 2.483 0 1.713.87 3.223 2.188 4.106-.807-.026-1.566-.247-2.228-.616v.061c0 2.392 1.701 4.384 3.955 4.835-.414.112-.849.171-1.296.171-.317 0-.626-.03-.927-.086.627 1.956 2.444 3.377 4.599 3.415-1.68 1.318-3.809 2.105-6.115 2.105-.397 0-.788-.023-1.175-.068 2.179 1.397 4.768 2.212 7.548 2.212 9.057 0 14.01-7.503 14.01-14.01 0-.213-.004-.426-.014-.637.962-.694 1.797-1.56 2.457-2.548l-.047-.02z"/>
+</svg>
+</button>
+<button class="whatsapp" onclick="deel('whatsapp')" title="Deel op WhatsApp">
+<i class="fab fa-whatsapp"></i>
+</button>
+<button class="facebook" onclick="deel('facebook')" title="Deel op Facebook">
+<i class="fab fa-facebook-f"></i>
+</button>
+</div>
+
+<style>
+.compact-share {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin-bottom: 10px; /* afstand tot footer */
+}
+
+.compact-share button {
+width: 50px;
+height: 50px;
+border: none;
+border-radius: 10px;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 20px;
+transition: transform 0.2s;
+}
+
+.compact-share button:hover {
+transform: scale(1.1);
+}
+
+.compact-share .x { background: #000; }
+.compact-share .whatsapp { background: #25D366; color: white; }
+.compact-share .facebook { background: #1877F2; color: white; }
+
+.compact-share i {
+font-size: 20px;
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+<script>
+function deel(platform) {
+const tekst = "Door Snackkiezer.nl eet ik vandaag een heerlijke snack! 🍴";
+let url = '';
+
+switch(platform) {
+case 'x':
+url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tekst)}`;
+break;
+case 'whatsapp':
+url = `https://wa.me/?text=${encodeURIComponent(tekst)}`;
+break;
+case 'facebook':
+url = `https://www.facebook.com/sharer/sharer.php?u=&quote=${encodeURIComponent(tekst)}`;
+break;
+}
+
+window.open(url, '_blank');
+}
+</script>
 
   <footer>
     &copy; Snackkiezer by Niki 2025
