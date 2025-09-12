@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Snack Kiezer</title>
+  <style>
+    body {
+      background-color: #fff8dc;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      color: brown;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: orange;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: darkorange;
+    }
+
+    #resultaat {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    #weetje {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #333;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Eet je friet en heb je lekkere trek?</h1>
+  <button onclick="kiesSnack()">Klik hier voor je favoriete snack!</button>
+  <p id="resultaat"></p>
+  <p id="weetje"></p>
+
+  <script>
+   function kiesSnack() {
+  let snacks = [
+    { naam: "Frikandel", weetje: "De frikandel is de populairste snack van Nederland." },
+    { naam: "Kroket", weetje: "In Nederland worden elk jaar meer dan 300 miljoen kroketten gegeten." },
+    { naam: "Kaassoufflé", weetje: "De kaassoufflé werd in de jaren ’60 bedacht als vegetarisch alternatief." },
+    { naam: "Bamischijf", weetje: "De bamischijf komt voort uit de Indonesische keuken." },
+    { naam: "Loempia", weetje: "Loempia’s zijn van oorsprong Chinees en werden traditioneel gegeten om de lente te vieren, vandaar de naam 'spring rolls'." },
+    { naam: "Mexicano", weetje: "De Mexicano werd in 1984 in België bedacht, maar heeft niks met Mexico te maken." },
+    { naam: "Berenhap", weetje: "Een berenhap is een gehaktbal in schijven met ui ertussen, aan een stokje." },
+    { naam: "Sitostick", weetje: "De sitostick bestaat uit stukjes kip of kalkoen aan een stokje." },
+    { naam: "Shoarmarol", weetje: "Een shoarmarol is een hartige snack van bladerdeeg gevuld met gekruid vlees en groenten." },
+    { naam: "Nasischijf", weetje: "De nasischijf is een snack gevuld met gekruide nasi, populair in snackbars." },
+    { naam: "Kaassoufflé met kruiden", weetje: "Een variant van de kaassoufflé met extra kruiden voor een pittige smaak." },
+    { naam: "Kipcorn", weetje: "De kipcorn is een lange gefrituurde kippenvleessnack met krokant laagje." },
+    { naam: "Vlammetje", weetje: "Het vlammetje is een pittige snack gevuld met gehakt en kruiden." },
+    { naam: "Kalfskroket", weetje: "Een kroket gemaakt van mals kalfsvlees, vaak iets exclusiever dan gewone kroketten." },
+    { naam: "Vegetarische loempia", weetje: "Een loempia zonder vlees, gevuld met groenten en kruiden." }
+  ];
+
+  let randomIndex = Math.floor(Math.random() * snacks.length);
+  let gekozenSnack = snacks[randomIndex];
+
+  document.getElementById("resultaat").innerText = gekozenSnack.naam + " 🍟";
+  document.getElementById("weetje").innerText = "Weetje: " + gekozenSnack.weetje;
+}
+  </script>
+
+<footer style="margin-top: 40px; font-size: 14px; color: #555;">
+  &copy; NS 2025
+</footer>
+
+</body>
+</html>
