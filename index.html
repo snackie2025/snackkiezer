@@ -84,7 +84,7 @@
   <header>
     <img src="logo.png" alt="Snackkiezer logo" style="height:160px; margin-bottom:10px;">
     <h1>Geen idee welke snack? 🤔</h1>
-    <p>Laat Snackkiezer jouw perfecte snack uitzoeken!</p>
+    <p>Laat Snackkiezer.nl jouw perfecte snack uitzoeken!</p>
   </header>
 
   <button onclick="kiesSnack()">Kies mijn snack 🎉</button>
@@ -112,6 +112,7 @@
       { naam: "Vegetarische loempia", weetje: "Een loempia zonder vlees, gevuld met groenten en kruiden." },
       { naam: "Bitterballen", weetje: "Kleine kroketten, als borrelhap of bij de friet. Soms als typisch Nederlands beschreven." },
       { naam: "Viandel", weetje: "Een frikadel maar dan net iets anders. Kruidig, krokant en een populaire favoriet!" },
+      { naam: "Gehaktstaaf", weetje: "De gehaktstaaf is in de jaren 80 populair geworden door het overgebleven gehakt van ballen en hamburgers, dus een gehaktbal in een ander jasje!" },
     ];
 
     let randomIndex = Math.floor(Math.random() * snacks.length);
@@ -192,6 +193,19 @@ break;
 window.open(url, '_blank');
 }
 </script>
+
+
+<div style="margin-top: 30px;">
+  <button 
+    onclick="window.location.href='mailto:snackkiezer@gmail.com?subject=Snackkiezer%20Feedback&body=Hoi,%20ik%20mis%20de%20volgende%20snack...';" 
+    style="font-size:14px; padding:8px 16px; background:#ff6b35; color:white; border:none; border-radius:20px; cursor:pointer;">
+    Geef feedback ✍️
+  </button>
+  <p style="font-size:12px; color:#555; margin-top:8px;">
+    Werkt de knop niet? Mail ons op: <a href="mailto:snackkiezer@gmail.com">snackkiezer@gmail.com</a>
+  </p>
+</div>
+
 
   <footer>
     &copy; Snackkiezer by Niki 2025
