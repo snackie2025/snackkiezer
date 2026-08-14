@@ -8,14 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZNRRTMTTY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-5ZNRRTMTTY');
-</script>
 <style>
   :root{
     --zwart: #241C15;
@@ -403,9 +395,72 @@
     clip:rect(0,0,0,0);
     white-space:nowrap;
   }
+
+  /* ---------- COOKIEBANNER ---------- */
+  .cookie-banner{
+    position:fixed;
+    left:0; right:0; bottom:0;
+    z-index:100;
+    background:var(--zwart-2);
+    border-top:1px solid rgba(255,255,255,0.1);
+    box-shadow:0 -10px 30px rgba(0,0,0,0.4);
+    padding:18px 20px;
+    display:none;
+  }
+  .cookie-banner.show{display:block;}
+  .cookie-inner{
+    max-width:820px;
+    margin:0 auto;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+  }
+  .cookie-inner p{
+    margin:0;
+    font-size:14px;
+    color:var(--cream);
+    flex:1 1 380px;
+  }
+  .cookie-actions{
+    display:flex;
+    gap:10px;
+    flex-shrink:0;
+  }
+  .cookie-actions .btn-ghost{
+    border-color:rgba(251,233,208,0.4);
+    color:var(--cream);
+  }
+  .cookie-actions .btn-ghost:hover{background:rgba(251,233,208,0.12); color:var(--wit);}
+  button.buzzer.cookie-accept{
+    padding:10px 22px;
+    font-size:14px;
+    box-shadow: 0 4px 0 #b8871a, 0 8px 18px rgba(0,0,0,0.3);
+  }
+  footer .cookie-link{
+    background:none;
+    border:none;
+    color:var(--geel);
+    font-family:var(--mono);
+    font-size:12px;
+    cursor:pointer;
+    text-decoration:underline;
+    padding:0;
+  }
 </style>
 </head>
 <body>
+
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookiemelding">
+  <div class="cookie-inner">
+    <p>We gebruiken alleen cookies voor bezoekersstatistieken (Google Analytics), zodat we weten welke content werkt. Geen advertenties, geen profilering.</p>
+    <div class="cookie-actions">
+      <button class="btn-ghost cookie-decline" id="cookieDecline">Weigeren</button>
+      <button class="buzzer cookie-accept" id="cookieAccept">Accepteren</button>
+    </div>
+  </div>
+</div>
 
 <header class="site">
   <div class="wrap brand">
@@ -499,8 +554,59 @@
   <div class="wrap">
     <div>Werkt de knop niet? Mail ons op <a href="mailto:snackkiezer@gmail.com">snackkiezer@gmail.com</a></div>
     <div class="credit">© Snackkiezer by Niki 2025 — 2026</div>
+    <div class="credit"><button class="cookie-link" id="cookieReopen">Cookievoorkeuren aanpassen</button></div>
   </div>
 </footer>
+
+<script>
+(function(){
+  const CONSENT_KEY = 'snackkiezer-cookie-consent'; // 'granted' | 'denied'
+  const banner = document.getElementById('cookieBanner');
+  const acceptBtn = document.getElementById('cookieAccept');
+  const declineBtn = document.getElementById('cookieDecline');
+  const reopenBtn = document.getElementById('cookieReopen');
+
+  function loadAnalytics(){
+    if(window.gaLoaded) return;
+    window.gaLoaded = true;
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5ZNRRTMTTY';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', 'G-5ZNRRTMTTY');
+  }
+
+  function showBanner(){ banner.classList.add('show'); }
+  function hideBanner(){ banner.classList.remove('show'); }
+
+  const saved = localStorage.getItem(CONSENT_KEY);
+  if(saved === 'granted'){
+    loadAnalytics();
+  } else if(saved === 'denied'){
+    // niets laden
+  } else {
+    showBanner();
+  }
+
+  acceptBtn.addEventListener('click', ()=>{
+    localStorage.setItem(CONSENT_KEY, 'granted');
+    loadAnalytics();
+    hideBanner();
+  });
+
+  declineBtn.addEventListener('click', ()=>{
+    localStorage.setItem(CONSENT_KEY, 'denied');
+    hideBanner();
+  });
+
+  reopenBtn.addEventListener('click', ()=>{
+    showBanner();
+  });
+})();
+</script>
 
 <script>
 (function(){
