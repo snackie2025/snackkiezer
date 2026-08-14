@@ -698,6 +698,10 @@
     buildBoard(finalText);
     const flaps = board.querySelectorAll('.flap');
     const targetChars = finalText.replace(/\s+/g, '').split('');
+    // meteen verhullen: geen glimp van het echte antwoord voor de animatie start
+    flaps.forEach(flap=>{
+      flap.querySelector('.char').textContent = ALPHABET[Math.floor(Math.random()*ALPHABET.length)];
+    });
     let completed = 0;
     flaps.forEach((flap, i)=>{
       const charEl = flap.querySelector('.char');
